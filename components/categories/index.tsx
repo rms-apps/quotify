@@ -53,7 +53,9 @@ export const Categories = () => {
     useAppColors();
 
   const handleShow = (category: QuoteCategory) => {
-    router.push(`/feed?category=${category}`);
+    setTimeout(() => {
+      router.push(`/feed?category=${category}`);
+    }, 500);
   };
 
   return (

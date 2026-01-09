@@ -8,22 +8,28 @@ import { View, Linking, FlatList } from 'react-native';
 import { InfoModal } from '@/components/common/InfoModal';
 import { ThemedButton } from '@rms-apps/ui-themed-button';
 import { ThemedSwitch } from '@rms-apps/ui-themed-switch';
+import { ModalWrapper } from '@rms-apps/ui-modal-wrapper';
 import { ThemedDivider } from '@rms-apps/ui-themed-divider';
 import { useIsDarkTheme } from '@/lib/hooks/useIsDarkTheme';
-import { useSettingsStore } from '@/lib/store/useSettingsStore';
+import { useQuotesStore } from '@/lib/store/useQuotesStore';
 import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import {
   HELP_AND_SUPPORT_SECTIONS,
   TERMS_AND_CONDITIONS_SECTIONS,
 } from './constants';
+import { InputCheckbox } from '../common/InputCheckbox';
+import { QuoteCategory } from '@/lib/api/quotes';
 
 export const Settings = () => {
   const isDarkThemeEnabled = useIsDarkTheme();
-
+  const { category, setCategory } = useQuotesStore();
   const { isSoundEnabled, toggleSound, toggleTheme } = useSettingsStore();
 
   const [isHelpModalVisible, setIsHelpModalVisible] = useState(false);
   const [isTermsModalVisible, setIsTermsModalVisible] = useState(false);
+  const [showQuoteCategoryModal, setIsQuoteCategoryModalVisible] =
+    useState(false);
 
   const toggleHelpModal = () => {
     setIsHelpModalVisible((prev) => !prev);
@@ -31,6 +37,10 @@ export const Settings = () => {
 
   const toggleTermsModal = () => {
     setIsTermsModalVisible((prev) => !prev);
+  };
+
+  const toggleCategoryModal = () => {
+    setIsQuoteCategoryModalVisible((prev) => !prev);
   };
 
   const openAboutUs = () => {
@@ -61,6 +71,19 @@ export const Settings = () => {
       leftContent: <ThemedText size="b2">Enable Sound</ThemedText>,
       rightContent: (
         <ThemedSwitch value={isSoundEnabled} onValueChange={toggleSound} />
+      ),
+    },
+    {
+      id: 'quoteCategory',
+      leftContent: <ThemedText size="b2">Quote Category</ThemedText>,
+      rightContent: (
+        <ThemedButton
+          title={category}
+          size="small"
+          themedTextProps={{ size: 'b3' }}
+          variant={isDarkThemeEnabled ? 'secondary' : 'primary'}
+          onPress={toggleCategoryModal}
+        />
       ),
     },
     {
@@ -159,6 +182,31 @@ export const Settings = () => {
       />
 
       <Footer inline={false} bottomTabBarHeight={BOTTOM_TAB_BAR_HEIGHT} />
+
+      <ModalWrapper
+        title="Select Quote Category"
+        variant="bottomSheet"
+        withTouchableBackdrop
+        bottomOffset={0}
+        isVisible={showQuoteCategoryModal}
+        onRequestClose={toggleCategoryModal}
+      >
+        <InputCheckbox
+          value={category}
+          label1="Quote Category"
+          label2="Daily Quote Type"
+          options={[
+            { value: 'Gita', label: 'Bhagavad Gita Quotes' },
+            { value: 'Motivational', label: 'Motivational Quotes' },
+            { value: 'Wisdom', label: 'Wisdom & Knowledge' },
+            { value: 'Success', label: 'Success & Growth' },
+            { value: 'Life', label: 'Life Lessons' },
+          ]}
+          onChange={(selectedValue) => {
+            setCategory(selectedValue as QuoteCategory);
+          }}
+        />
+      </ModalWrapper>
 
       <InfoModal
         title="Help And Support"

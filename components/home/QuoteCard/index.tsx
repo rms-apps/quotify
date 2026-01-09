@@ -2,9 +2,10 @@ import { Quote } from '@/lib/api/quotes';
 import * as Clipboard from 'expo-clipboard';
 import { Ionicons } from '@expo/vector-icons';
 import { useAppColors } from '@/lib/hooks/useAppColors';
+import { IconButton } from '@/components/home/IconButton';
+import { useQuotesStore } from '@/lib/store/useQuotesStore';
 import { View, Text, Pressable, Share } from 'react-native';
 import { useFavoritesStore } from '@/lib/store/useFavoritesStore';
-import { useQuotesStore } from '@/lib/store/useQuotesStore';
 
 type QuoteCardProps = {
   quote: Quote | null;
@@ -85,25 +86,25 @@ export const QuoteCard = ({
       )}
 
       <View className="flex-row justify-between px-2">
-        <Pressable onPress={handleToggleFavorite}>
+        <IconButton onPress={handleToggleFavorite}>
           <Ionicons
             name={liked ? 'heart' : 'heart-outline'}
             size={24}
             color={liked ? '#FF4D4D' : '#333'}
           />
-        </Pressable>
+        </IconButton>
 
-        <Pressable onPress={handleRefresh}>
+        <IconButton onPress={handleRefresh}>
           <Ionicons name="refresh" size={24} color="#333" />
-        </Pressable>
+        </IconButton>
 
-        <Pressable onPress={handleShare}>
+        <IconButton onPress={handleShare}>
           <Ionicons name="share-social-outline" size={24} color="#333" />
-        </Pressable>
+        </IconButton>
 
-        <Pressable onPress={handleCopy}>
+        <IconButton onPress={handleCopy}>
           <Ionicons name="copy-outline" size={24} color="#333" />
-        </Pressable>
+        </IconButton>
       </View>
     </View>
   );
