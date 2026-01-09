@@ -14,7 +14,7 @@
         "simulator": true
       },
       "env": {
-        "GITHUB_TOKEN": "your-token-here"
+        "GITHUB_TOKEN": "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"
       }
     },
     "preview": {
@@ -26,7 +26,7 @@
         "simulator": true
       },
       "env": {
-        "GITHUB_TOKEN": "your-token-here"
+        "GITHUB_TOKEN": "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"
       }
     },
     "production": {
@@ -38,7 +38,7 @@
         "simulator": false
       },
       "env": {
-        "GITHUB_TOKEN": "your-token-here"
+        "GITHUB_TOKEN": "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"
       }
     }
   }
