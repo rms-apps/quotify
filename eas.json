@@ -12,6 +12,9 @@
       },
       "ios": {
         "simulator": true
+      },
+      "env": {
+        "GITHUB_TOKEN": "your-token-here"
       }
     },
     "preview": {
@@ -21,6 +24,9 @@
       },
       "ios": {
         "simulator": true
+      },
+      "env": {
+        "GITHUB_TOKEN": "your-token-here"
       }
     },
     "production": {
@@ -30,6 +36,9 @@
       },
       "ios": {
         "simulator": false
+      },
+      "env": {
+        "GITHUB_TOKEN": "your-token-here"
       }
     }
   }
