@@ -80,7 +80,7 @@ export const QuoteCard = ({
 
       {quote.author && (
         <Text className="text-sm text-gray-500 text-right mb-6">
-          — {quote.author}
+          — {quote.author === 'Unknown' ? 'Anonymous' : quote.author}
         </Text>
       )}
 

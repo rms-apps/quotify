@@ -15,7 +15,8 @@ import { QuoteCard } from './QuoteCard';
 
 export const Home = () => {
   const insets = useSafeAreaInsets();
-  const { THEMED_BACKGROUND, THEMED_CONTENT } = useAppColors();
+  const { THEMED_BACKGROUND, THEMED_CONTENT, BOTTOM_TAB_BAR_BACKGROUND } =
+    useAppColors();
 
   const { currentStreak, updateStreak } = useStreakStore();
   const { current, previous, loadQuote } = useQuotesStore();
@@ -27,7 +28,7 @@ export const Home = () => {
 
   return (
     <LinearGradient
-      colors={[THEMED_BACKGROUND, THEMED_CONTENT]}
+      colors={[THEMED_BACKGROUND, THEMED_CONTENT, BOTTOM_TAB_BAR_BACKGROUND]}
       className="flex-1 px-5 pt-6"
       style={{
         paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + BUFFER_PADDING,

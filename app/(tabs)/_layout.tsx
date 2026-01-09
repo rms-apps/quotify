@@ -22,7 +22,7 @@ export default function TabLayout() {
 function InnerTabLayout({ insets }: { insets: EdgeInsets }) {
   const {
     BACKGROUND_PRIMARY,
-    BOTTOM_TAB_BAR_BACKROUND,
+    BOTTOM_TAB_BAR_BACKGROUND,
     BOTTOM_TAB_BAR_ICON_ACTIVE,
     BOTTOM_TAB_BAR_ICON_INACTIVE,
   } = useAppColors();
@@ -46,7 +46,7 @@ function InnerTabLayout({ insets }: { insets: EdgeInsets }) {
           tabBarStyle: {
             borderTopLeftRadius: 24,
             borderTopRightRadius: 24,
-            backgroundColor: BOTTOM_TAB_BAR_BACKROUND,
+            backgroundColor: BOTTOM_TAB_BAR_BACKGROUND,
             borderTopWidth: 0,
             zIndex: 99999,
             elevation: 10,
@@ -102,9 +102,9 @@ function InnerTabLayout({ insets }: { insets: EdgeInsets }) {
         />
 
         <Tabs.Screen
-          name="quote-feed"
+          name="feed"
           options={{
-            title: 'Quotes',
+            title: 'Quotes Feed',
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Ionicons size={20} name="chatbubble-ellipses" color={color} />

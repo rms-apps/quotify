@@ -66,9 +66,6 @@ export const Colors = {
 
     modal_wrapper_header_handle: '#C1C7CE',
     modal_wrapper_header_close_icon: '#41484D',
-
-    tabBarActiveTintColor: '#3B82F6',
-    tabBarInactiveTintColor: '#64748B',
   },
 
   dark: {
@@ -76,7 +73,7 @@ export const Colors = {
     themed_content_error: '#fca5a5',
     themed_background: 'rgba(41, 227, 180, 0.15)',
 
-    bottom_tab_bar_background: '#091524',
+    bottom_tab_bar_background: '#0F2035',
     bottom_tab_bar_icon_active: '#F9FAFB',
     bottom_tab_bar_icon_inactive: '#6B7280',
 
@@ -137,8 +134,5 @@ export const Colors = {
 
     modal_wrapper_header_handle: '#41484D',
     modal_wrapper_header_close_icon: '#C1C7CE',
-
-    tabBarActiveTintColor: '#3B82F6',
-    tabBarInactiveTintColor: '#64748B',
   },
 };

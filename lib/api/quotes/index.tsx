@@ -56,3 +56,19 @@ export const fetchQuote = (
 
   return filtered[Math.floor(Math.random() * filtered.length)];
 };
+
+export const fetchAllQuotes = (
+  category: QuoteCategory,
+  excludeId?: number,
+): Quote[] => {
+  const list = QUOTE_MAP[category];
+
+  if (!list || list.length === 0) {
+    throw new Error(`No quotes found for category: ${category}`);
+  }
+
+  const filtered =
+    excludeId !== undefined ? list.filter((q) => q.id !== excludeId) : list;
+
+  return filtered;
+};

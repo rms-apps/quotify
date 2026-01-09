@@ -1,10 +1,13 @@
-import { Quotes } from '@/components/quotes';
 import { Ionicons } from '@expo/vector-icons';
+import { QuoteCategory } from '@/lib/api/quotes';
+import { useLocalSearchParams } from 'expo-router';
 import { Header } from '@/components/common/Header';
+import { QuotesFeed } from '@/components/quotesFeed';
 import { useAppColors } from '@/lib/hooks/useAppColors';
 
-const QuoteFeedScreen = () => {
+const FeedScreen = () => {
   const { BOTTOM_TAB_BAR_ICON_ACTIVE } = useAppColors();
+  const { category = 'Motivational' } = useLocalSearchParams();
 
   return (
     <>
@@ -18,9 +21,10 @@ const QuoteFeedScreen = () => {
           />
         }
       />
-      <Quotes />
+
+      <QuotesFeed category={category as QuoteCategory} />
     </>
   );
 };
 
-export default QuoteFeedScreen;
+export default FeedScreen;

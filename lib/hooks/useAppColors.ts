@@ -8,7 +8,7 @@ export const useAppColors = () => {
     THEMED_BACKGROUND: useThemeColor({ name: 'themed_background' }),
 
     // Bottom Tab Bar
-    BOTTOM_TAB_BAR_BACKROUND: useThemeColor({
+    BOTTOM_TAB_BAR_BACKGROUND: useThemeColor({
       name: 'bottom_tab_bar_background',
     }),
     BOTTOM_TAB_BAR_ICON_ACTIVE: useThemeColor({
@@ -28,14 +28,6 @@ export const useAppColors = () => {
     }),
     INACTIVE_MARKER_COLOR: useThemeColor({
       name: 'inactive_marker_color',
-    }),
-
-    // TabBar Tint Color
-    TAB_BAR_ACTIVE_TINT_COLOR: useThemeColor({
-      name: 'tabBarActiveTintColor',
-    }),
-    TAB_BAR_INACTIVE_TINT_COLOR: useThemeColor({
-      name: 'tabBarInactiveTintColor',
     }),
 
     // Typography

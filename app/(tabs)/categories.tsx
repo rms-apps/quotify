@@ -11,11 +11,7 @@ const CategoriesScreen = () => {
       <Header
         title="Categories"
         icon={
-          <Ionicons
-            size={24}
-            name="grid"
-            color={BOTTOM_TAB_BAR_ICON_ACTIVE}
-          />
+          <Ionicons size={24} name="grid" color={BOTTOM_TAB_BAR_ICON_ACTIVE} />
         }
       />
       <Categories />

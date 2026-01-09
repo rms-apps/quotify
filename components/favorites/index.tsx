@@ -12,7 +12,8 @@ import { AdvertisementWrapper } from '@/components/common/Advertisement/Advertis
 export const Favorites = () => {
   const insets = useSafeAreaInsets();
   const { favorites, removeFavorite } = useFavoritesStore();
-  const { THEMED_BACKGROUND, THEMED_CONTENT } = useAppColors();
+  const { THEMED_BACKGROUND, THEMED_CONTENT, BOTTOM_TAB_BAR_BACKGROUND } =
+    useAppColors();
 
   const handleShare = async (text: string, author?: string) => {
     await Share.share({
@@ -26,7 +27,7 @@ export const Favorites = () => {
 
   return (
     <LinearGradient
-      colors={[THEMED_BACKGROUND, THEMED_CONTENT]}
+      colors={[THEMED_BACKGROUND, THEMED_CONTENT, BOTTOM_TAB_BAR_BACKGROUND]}
       className="flex-1 px-5 pt-6"
       style={{
         paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + BUFFER_PADDING,
