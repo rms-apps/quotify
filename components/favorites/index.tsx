@@ -5,8 +5,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { View, Text, FlatList, Pressable, Share } from 'react-native';
 
 import { useAppColors } from '@/lib/hooks/useAppColors';
-import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
 import { useFavoritesStore } from '@/lib/store/useFavoritesStore';
+import { BOTTOM_TAB_BAR_HEIGHT, BUFFER_PADDING } from '@/lib/constants/common';
+import { AdvertisementWrapper } from '@/components/common/Advertisement/AdvertisementWrapper';
 
 export const Favorites = () => {
   const insets = useSafeAreaInsets();
@@ -27,7 +28,9 @@ export const Favorites = () => {
     <LinearGradient
       colors={[THEMED_BACKGROUND, THEMED_CONTENT]}
       className="flex-1 px-5 pt-6"
-      style={{ paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + 16 }}
+      style={{
+        paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + BUFFER_PADDING,
+      }}
     >
       {/* Empty State */}
       {favorites.length === 0 ? (
@@ -43,7 +46,7 @@ export const Favorites = () => {
           data={favorites}
           keyExtractor={(item) => item.text}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 20 }}
+          contentContainerStyle={{ paddingBottom: 12 }}
           renderItem={({ item }) => (
             <View className="bg-white rounded-2xl p-5 mb-4 shadow-md">
               <Text
@@ -86,10 +89,7 @@ export const Favorites = () => {
         />
       )}
 
-      {/* Ad Banner */}
-      <View className="h-14 rounded-xl bg-gray-100 items-center justify-center mt-2 mb-2">
-        <Text className="text-xs text-gray-400">Ad Banner</Text>
-      </View>
+      <AdvertisementWrapper />
     </LinearGradient>
   );
 };

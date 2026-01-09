@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
-import { Ionicons } from '@expo/vector-icons';
-import { View, Text, Pressable } from 'react-native';
+import { View, Text } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-
-import { pluralize } from '@/lib/utils/common';
-import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
 
 import { useAppColors } from '@/lib/hooks/useAppColors';
 import { useStreakStore } from '@/lib/store/useStreakStore';
 import { useQuotesStore } from '@/lib/store/useQuotesStore';
+
+import { pluralize } from '@/lib/utils/common';
+import { BOTTOM_TAB_BAR_HEIGHT, BUFFER_PADDING } from '@/lib/constants/common';
+import { AdvertisementWrapper } from '@/components/common/Advertisement/AdvertisementWrapper';
 
 import { QuoteCard } from './QuoteCard';
 
@@ -30,7 +30,7 @@ export const Home = () => {
       colors={[THEMED_BACKGROUND, THEMED_CONTENT]}
       className="flex-1 px-5 pt-6"
       style={{
-        paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + 16,
+        paddingBottom: insets.bottom + BOTTOM_TAB_BAR_HEIGHT + BUFFER_PADDING,
       }}
     >
       <View className="flex-row justify-between items-center mb-6">
@@ -61,10 +61,7 @@ export const Home = () => {
         </View>
       </View>
 
-      {/* Ad Placeholder */}
-      <View className="h-14 rounded-xl bg-gray-100 items-center justify-center mt-4 mb-2">
-        <Text className="text-xs text-gray-400">Ad Banner</Text>
-      </View>
+      <AdvertisementWrapper />
     </LinearGradient>
   );
 };
