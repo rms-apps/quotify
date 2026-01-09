@@ -7,10 +7,16 @@ import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAdvertisement } from '@/components/common/Advertisement/BannerAd';
+import { useEffect } from 'react';
+import { scheduleDailyQuoteNotification } from '@/lib/hooks/useNotification';
 
 export default function TabLayout() {
   const insets = useSafeAreaInsets();
   const { theme } = useSettingsStore();
+
+  useEffect(() => {
+    scheduleDailyQuoteNotification();
+  }, []);
 
   return (
     <ThemeProvider theme={theme} palette={Colors}>

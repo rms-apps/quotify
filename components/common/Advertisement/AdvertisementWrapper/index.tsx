@@ -1,6 +1,5 @@
 import { Text, View } from 'react-native';
 import { BUFFER_PADDING } from '@/lib/constants/common';
-import { TestIds } from 'react-native-google-mobile-ads';
 import { BannerAdvertisement } from '@/components/common/Advertisement/BannerAd';
 
 export const AdvertisementWrapper = () => {
@@ -9,7 +8,7 @@ export const AdvertisementWrapper = () => {
       className="h-14 rounded-xl bg-gray-100 items-center justify-center"
       style={{ marginTop: BUFFER_PADDING }}
     >
-      <BannerAdvertisement adId={TestIds.ADAPTIVE_BANNER} />
+      <BannerAdvertisement adId="ca-app-pub-7132718007829523/9229398342" />
     </View>
   );
 };
