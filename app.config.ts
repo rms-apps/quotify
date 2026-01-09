@@ -36,10 +36,10 @@ export default {
       resizeMode: 'contain',
       backgroundColor: '#ffffff',
     },
-    // notification: {
-    //   icon: './assets/images/notification-icon.png',
-    //   color: '#007AFF',
-    // },
+    notification: {
+      icon: './assets/images/notification-icon.png',
+      color: '#1DA193',
+    },
     ios: {
       supportsTablet: true,
       bundleIdentifier: constants.iosBundleId,
@@ -106,6 +106,6 @@ export default {
         projectId: constants.easProjectId,
       },
     },
-    owner: 'rishim777',
+    owner: 'rm-corps',
   },
 };
