@@ -17,11 +17,12 @@ export const Home = () => {
   const insets = useSafeAreaInsets();
   const { THEMED_BACKGROUND, THEMED_CONTENT } = useAppColors();
 
-  const { currentStreak } = useStreakStore();
-  const { current, previous, loadQuote, nextQuote } = useQuotesStore();
+  const { currentStreak, updateStreak } = useStreakStore();
+  const { current, previous, loadQuote } = useQuotesStore();
 
   useEffect(() => {
     loadQuote();
+    updateStreak();
   }, []);
 
   return (

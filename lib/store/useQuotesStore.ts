@@ -44,7 +44,8 @@ export const useQuotesStore = create<QuotesState>((set, get) => ({
 
   nextQuote: () => {
     const { category, current } = get();
-    const quote = fetchQuote(category, 'random');
+
+    const quote = fetchQuote(category, 'random', current?.id);
 
     set({
       previous: current,

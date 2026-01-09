@@ -32,6 +32,7 @@ export type QuoteMode = 'daily' | 'random';
 export const fetchQuote = (
   category: QuoteCategory,
   mode: QuoteMode = 'daily',
+  excludeId?: number,
 ): Quote => {
   const list = QUOTE_MAP[category];
 
@@ -39,10 +40,19 @@ export const fetchQuote = (
     throw new Error(`No quotes found for category: ${category}`);
   }
 
-  if (mode === 'random') {
-    return list[Math.floor(Math.random() * list.length)];
+  if (mode === 'daily') {
+    const dayIndex = getDayOfYear(); // 0–365
+    return list[dayIndex % list.length];
   }
 
-  const dayIndex = getDayOfYear(); // 0–365
-  return list[dayIndex % list.length];
+  // ✅ RANDOM (exclude current)
+  const filtered =
+    excludeId !== undefined ? list.filter((q) => q.id !== excludeId) : list;
+
+  // Edge case: only one quote exists
+  if (filtered.length === 0) {
+    return list[0];
+  }
+
+  return filtered[Math.floor(Math.random() * filtered.length)];
 };
