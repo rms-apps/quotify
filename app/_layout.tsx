@@ -2,7 +2,7 @@ import 'react-native-reanimated';
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useSettingsStore } from '@/context/settings/store';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import MobileAds, { MaxAdContentRating } from 'react-native-google-mobile-ads';
 
 import '../global.css';

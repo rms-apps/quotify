@@ -1,5 +1,5 @@
 import { THEME } from '@/lib/constants/common';
-import { useSettingsStore } from '@/context/settings/store';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 
 export const useIsDarkTheme = () => {
   const { theme } = useSettingsStore();

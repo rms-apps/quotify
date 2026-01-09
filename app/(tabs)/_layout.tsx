@@ -1,9 +1,9 @@
 import { Tabs } from 'expo-router';
+import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '@/lib/constants/colors';
 import { ThemeProvider } from '@rms-apps/ui-utils';
 import { useAppColors } from '@/lib/hooks/useAppColors';
-import { useSettingsStore } from '@/context/settings/store';
-import { Ionicons, FontAwesome6 } from '@expo/vector-icons';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { BannerAdvertisement } from '@/components/common/Advertisement/BannerAd';
@@ -75,6 +75,39 @@ function InnerTabLayout({ insets }: { insets: EdgeInsets }) {
             headerShown: false,
             tabBarIcon: ({ color, size }) => (
               <Ionicons size={20} name="home" color={color} />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="favorites"
+          options={{
+            title: 'Favorites',
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons size={20} name="heart" color={color} />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="categories"
+          options={{
+            title: 'Categories',
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons size={20} name="grid" color={color} />
+            ),
+          }}
+        />
+
+        <Tabs.Screen
+          name="quote-feed"
+          options={{
+            title: 'Quotes',
+            headerShown: false,
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons size={20} name="chatbubble-ellipses" color={color} />
             ),
           }}
         />

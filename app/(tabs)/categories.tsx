@@ -1,26 +1,26 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Settings } from '@/components/settings';
 import { Header } from '@/components/common/Header';
+import { Categories } from '@/components/categories';
 import { useAppColors } from '@/lib/hooks/useAppColors';
 
-const SettingsScreen = () => {
+const CategoriesScreen = () => {
   const { BOTTOM_TAB_BAR_ICON_ACTIVE } = useAppColors();
 
   return (
     <>
       <Header
-        title="Settings"
+        title="Categories"
         icon={
           <Ionicons
             size={24}
-            name="settings"
+            name="grid"
             color={BOTTOM_TAB_BAR_ICON_ACTIVE}
           />
         }
       />
-      <Settings />
+      <Categories />
     </>
   );
 };
 
-export default SettingsScreen;
+export default CategoriesScreen;

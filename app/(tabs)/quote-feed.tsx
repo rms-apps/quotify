@@ -1,26 +1,26 @@
+import { Quotes } from '@/components/quotes';
 import { Ionicons } from '@expo/vector-icons';
-import { Settings } from '@/components/settings';
 import { Header } from '@/components/common/Header';
 import { useAppColors } from '@/lib/hooks/useAppColors';
 
-const SettingsScreen = () => {
+const QuoteFeedScreen = () => {
   const { BOTTOM_TAB_BAR_ICON_ACTIVE } = useAppColors();
 
   return (
     <>
       <Header
-        title="Settings"
+        title="Quote Feed"
         icon={
           <Ionicons
             size={24}
-            name="settings"
+            name="chatbubble-ellipses"
             color={BOTTOM_TAB_BAR_ICON_ACTIVE}
           />
         }
       />
-      <Settings />
+      <Quotes />
     </>
   );
 };
 
-export default SettingsScreen;
+export default QuoteFeedScreen;

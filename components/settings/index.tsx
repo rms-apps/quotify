@@ -10,7 +10,7 @@ import { ThemedButton } from '@rms-apps/ui-themed-button';
 import { ThemedSwitch } from '@rms-apps/ui-themed-switch';
 import { ThemedDivider } from '@rms-apps/ui-themed-divider';
 import { useIsDarkTheme } from '@/lib/hooks/useIsDarkTheme';
-import { useSettingsStore } from '@/context/settings/store';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import { BOTTOM_TAB_BAR_HEIGHT } from '@/lib/constants/common';
 import {
   HELP_AND_SUPPORT_SECTIONS,

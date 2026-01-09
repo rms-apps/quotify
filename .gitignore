@@ -35,4 +35,9 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-app-example
+#prebuild
+android/
+ios/
+
+*.apk
+

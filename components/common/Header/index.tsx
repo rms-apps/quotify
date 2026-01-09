@@ -2,19 +2,20 @@ import { THEME } from '@/lib/constants/common';
 import { ThemedText } from '@rms-apps/ui-themed-text';
 import { useAppColors } from '@/lib/hooks/useAppColors';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { useSettingsStore } from '@/context/settings/store';
+import { useSettingsStore } from '@/lib/store/useSettingsStore';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SingleSidedShadowBox } from '@/components/common/SingleShadowBox';
 
 export type HeaderProps = {
   icon: React.ReactNode;
+  isRounded?: boolean;
   title: string;
   height?: number;
   disableSafeAreaTopInset?: boolean;
   handleClick?: () => void;
 };
 
-const child = ({ title, icon, handleClick }: HeaderProps) => {
+const Child = ({ title, icon, handleClick }: HeaderProps) => {
   return (
     <View style={[styles.header_container]}>
       <View className="flex flex-1 flex-row items-center gap-4">
@@ -35,6 +36,7 @@ const child = ({ title, icon, handleClick }: HeaderProps) => {
 
 export const Header = ({
   height,
+  isRounded = false,
   disableSafeAreaTopInset = false,
   ...props
 }: HeaderProps) => {
@@ -48,11 +50,12 @@ export const Header = ({
         paddingTop: disableSafeAreaTopInset ? 0 : insets.top,
         backgroundColor: BOTTOM_TAB_BAR_BACKROUND,
       }}
+      className={isRounded ? 'rounded-b-2xl' : ''}
     >
       {theme === THEME.LIGHT ? (
-        <SingleSidedShadowBox>{child(props)}</SingleSidedShadowBox>
+        <SingleSidedShadowBox>{Child(props)}</SingleSidedShadowBox>
       ) : (
-        child(props)
+        Child(props)
       )}
     </View>
   );

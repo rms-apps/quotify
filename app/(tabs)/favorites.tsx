@@ -1,26 +1,22 @@
 import { Ionicons } from '@expo/vector-icons';
-import { Settings } from '@/components/settings';
+import { Favorites } from '@/components/favorites';
 import { Header } from '@/components/common/Header';
 import { useAppColors } from '@/lib/hooks/useAppColors';
 
-const SettingsScreen = () => {
+const FavoritesScreen = () => {
   const { BOTTOM_TAB_BAR_ICON_ACTIVE } = useAppColors();
 
   return (
     <>
       <Header
-        title="Settings"
+        title="Favorites"
         icon={
-          <Ionicons
-            size={24}
-            name="settings"
-            color={BOTTOM_TAB_BAR_ICON_ACTIVE}
-          />
+          <Ionicons size={24} name="heart" color={BOTTOM_TAB_BAR_ICON_ACTIVE} />
         }
       />
-      <Settings />
+      <Favorites />
     </>
   );
 };
 
-export default SettingsScreen;
+export default FavoritesScreen;
