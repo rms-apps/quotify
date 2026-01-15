@@ -8,9 +8,10 @@ interface SettingsState {
   theme: Theme;
   hasHydrated: boolean;
   isSoundEnabled: boolean;
-
+  dailyNotification: boolean;
   toggleTheme: () => void;
   toggleSound: () => void;
+  toggleDailyNotification: () => void;
   setHasHydrated: (hasHydrated: boolean) => void;
 }
 
@@ -20,8 +21,14 @@ export const useSettingsStore = create<SettingsState>()(
       return {
         hasHydrated: false,
         theme: SETTINGS.DEFAULT_THEME,
+        dailyNotification: SETTINGS.DAILY_NOTIFICATION,
         isSoundEnabled: SETTINGS.DEFAULT_SOUND_ENABLED,
         isOnboardingCompleted: SETTINGS.DEFAULT_ONBOARDING_STATE,
+
+        toggleDailyNotification: () =>
+          set((state) => ({
+            dailyNotification: !state.dailyNotification,
+          })),
 
         toggleTheme: () =>
           set((state) => ({

@@ -2,14 +2,28 @@ import 'react-native-reanimated';
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
+import * as Notifications from 'expo-notifications';
 import { useSettingsStore } from '@/lib/store/useSettingsStore';
-import { requestPermissions } from '@/lib/hooks/useNotification';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { requestNotificationPermissions } from '@/lib/hooks/useNotification';
 import MobileAds, { MaxAdContentRating } from 'react-native-google-mobile-ads';
 
 import '../global.css';
 
 SplashScreen.preventAutoHideAsync();
+
+/**
+ * REQUIRED: How notifications behave when received
+ * Call once (importing this file is enough)
+ */
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: false,
+  }),
+});
 
 export default function RootLayout() {
   const hasHydrated = useSettingsStore((state) => state.hasHydrated);
@@ -35,7 +49,7 @@ export default function RootLayout() {
   useEffect(() => {
     if (hasHydrated) {
       SplashScreen.hideAsync();
-      requestPermissions();
+      requestNotificationPermissions();
       initializeAdForAdMob();
     }
   }, [hasHydrated]);

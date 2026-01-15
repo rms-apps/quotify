@@ -24,7 +24,13 @@ import { QuoteCategory } from '@/lib/api/quotes';
 export const Settings = () => {
   const isDarkThemeEnabled = useIsDarkTheme();
   const { category, setCategory } = useQuotesStore();
-  const { isSoundEnabled, toggleSound, toggleTheme } = useSettingsStore();
+  const {
+    isSoundEnabled,
+    dailyNotification,
+    toggleSound,
+    toggleTheme,
+    toggleDailyNotification,
+  } = useSettingsStore();
 
   const [isHelpModalVisible, setIsHelpModalVisible] = useState(false);
   const [isTermsModalVisible, setIsTermsModalVisible] = useState(false);
@@ -71,6 +77,16 @@ export const Settings = () => {
       leftContent: <ThemedText size="b2">Enable Sound</ThemedText>,
       rightContent: (
         <ThemedSwitch value={isSoundEnabled} onValueChange={toggleSound} />
+      ),
+    },
+    {
+      id: 'dailyNotification',
+      leftContent: <ThemedText size="b2">Daily Notification</ThemedText>,
+      rightContent: (
+        <ThemedSwitch
+          value={dailyNotification}
+          onValueChange={toggleDailyNotification}
+        />
       ),
     },
     {

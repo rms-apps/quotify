@@ -77,6 +77,7 @@ export default {
         },
       ],
       'expo-build-properties',
+      'expo-notifications',
       'expo-web-browser',
     ],
     experiments: {
